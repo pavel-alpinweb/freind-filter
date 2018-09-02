@@ -86,12 +86,21 @@ function searchFriend(input){
       for (const card of source.children ) {
         let firstName = card.getAttribute('data-firstname').toLowerCase();
         let lastName = card.getAttribute('data-lastname').toLowerCase();
+        if (firstName.indexOf(searchValue) > -1  || lastName.indexOf(searchValue) > -1) {
+          card.classList.remove('hide');
+        } else{
+          card.classList.add('hide');
+        }
       }
     } else if(input.id == filterSeacrhInput.id){
       for (const card of target.children ) {
         let firstName = card.getAttribute('data-firstname').toLowerCase();
         let lastName = card.getAttribute('data-lastname').toLowerCase();
-        console.log(`${firstName} ${lastName}`);
+        if (firstName.indexOf(searchValue) > -1  || lastName.indexOf(searchValue) > -1) {
+          card.classList.remove('hide');
+        } else{
+          card.classList.add('hide');
+        }
       }
     }
   });
