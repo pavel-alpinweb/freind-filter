@@ -33,11 +33,44 @@ function makeDnD(zones) {
                   } else {
                       zone.insertBefore(currentDrag.node, zone.lastElementChild);
                   }
-              }
 
+                  if (currentDrag.node.parentNode.classList.contains('friends-catalog__list--filter')) {
+                    const icon = currentDrag.node.querySelector('.friend-card__control');
+                    icon.classList.remove('friend-card__control--add');  
+                    icon.classList.add('friend-card__control--remove');
+                  } else {
+                    const icon = currentDrag.node.querySelector('.friend-card__control');
+                    icon.classList.add('friend-card__control--add');  
+                    icon.classList.remove('friend-card__control--remove');
+                  }
+              }
               currentDrag = null;
           }
       });
   })
 }
 
+function sortCards(){
+    const controls = document.querySelectorAll('.friend-card__control');
+    for (const btn of controls) {
+      btn.addEventListener('click',()=>{
+        if (btn.classList.contains('friend-card__control--add')) {
+          btn.classList.remove('friend-card__control--add');  
+          btn.classList.add('friend-card__control--remove');
+        } else {
+          btn.classList.add('friend-card__control--add');  
+          btn.classList.remove('friend-card__control--remove');
+
+        }
+
+        const currentZome = btn.parentNode.parentNode;
+        if (currentZome.classList.contains('friends-catalog__list--filter')) {
+          source.insertBefore(btn.parentNode, source.lastElementChild);
+        } else {
+          target.insertBefore(btn.parentNode, target.lastElementChild);
+        }
+      });
+    }
+}
+
+sortCards();
