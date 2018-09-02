@@ -11,11 +11,16 @@ const target = document.querySelector('.friends-catalog__list--filter');
 const friendSeacrhInput = document.getElementById('accaunt-friends');
 const filterSeacrhInput = document.getElementById('list-friends');
 
-searchFriend(friendSeacrhInput);
-searchFriend(filterSeacrhInput);
+searchHandler(friendSeacrhInput);
+searchHandler(filterSeacrhInput);
 
 makeDnD([source, target]);
 sortCards();
+
+function changeClass(element,add,remove){
+  element.classList.add(add); 
+  element.classList.remove(remove);  
+}
 
 function makeDnD(zones) {
   let currentDrag;
@@ -42,12 +47,10 @@ function makeDnD(zones) {
 
                   if (currentDrag.node.parentNode.classList.contains('friends-catalog__list--filter')) {
                     const icon = currentDrag.node.querySelector('.friend-card__control');
-                    icon.classList.remove('friend-card__control--add');  
-                    icon.classList.add('friend-card__control--remove');
+                    changeClass(icon,'friend-card__control--remove','friend-card__control--add');
                   } else {
                     const icon = currentDrag.node.querySelector('.friend-card__control');
-                    icon.classList.add('friend-card__control--add');  
-                    icon.classList.remove('friend-card__control--remove');
+                    changeClass(icon,'friend-card__control--add','friend-card__control--remove');
                   }
               }
               currentDrag = null;
@@ -61,11 +64,9 @@ function sortCards(){
   for (const btn of controls) {
     btn.addEventListener('click',()=>{
       if (btn.classList.contains('friend-card__control--add')) {
-        btn.classList.remove('friend-card__control--add');  
-        btn.classList.add('friend-card__control--remove');
+        changeClass(btn,'friend-card__control--remove','friend-card__control--add');
       } else {
-        btn.classList.add('friend-card__control--add');  
-        btn.classList.remove('friend-card__control--remove');
+        changeClass(btn,'friend-card__control--add','friend-card__control--remove');
       }
       const currentZome = btn.parentNode.parentNode;
       if (currentZome.classList.contains('friends-catalog__list--filter')) {
@@ -89,7 +90,7 @@ function searchEngine(list,inputValue){
   }
 }
 
-function searchFriend(input){
+function searchHandler(input){
   input.addEventListener('input',(e)=>{
     let searchValue = input.value.toLowerCase();
     if(input.id == friendSeacrhInput.id){
