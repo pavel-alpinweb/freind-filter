@@ -26,16 +26,16 @@ function makeDnD(zones) {
   let currentDrag;
 
   zones.forEach(zone => {
-      zone.addEventListener('dragstart', (e) => {
+      zone.addEventListener('dragstart', e => {
           currentDrag = { source: zone, node: e.target };
       });
 
-      zone.addEventListener('dragover', (e) => {
+      zone.addEventListener('dragover', e => {
           e.preventDefault();
 
       });
 
-      zone.addEventListener('drop', (e) => {
+      zone.addEventListener('drop', e => {
           if (currentDrag) {
               e.preventDefault();
               if (currentDrag.source !== zone) {
@@ -91,7 +91,7 @@ function searchEngine(list,inputValue){
 }
 
 function searchHandler(input){
-  input.addEventListener('input',(e)=>{
+  input.addEventListener('input',e=>{
     let searchValue = input.value.toLowerCase();
     if(input.id == friendSeacrhInput.id){
       searchEngine(source,searchValue);
