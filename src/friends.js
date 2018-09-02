@@ -81,17 +81,16 @@ function sortCards(){
 
 function searchFriend(input){
   input.addEventListener('input',(e)=>{
-    let searchValue = input.value;
+    let searchValue = input.value.toLowerCase();
     if(input.id == friendSeacrhInput.id){
       for (const card of source.children ) {
-        let firstName = card.getAttribute('data-firstname');
-        let lastName = card.getAttribute('data-lastname');
-        console.log(`${firstName} ${lastName}`);
+        let firstName = card.getAttribute('data-firstname').toLowerCase();
+        let lastName = card.getAttribute('data-lastname').toLowerCase();
       }
     } else if(input.id == filterSeacrhInput.id){
       for (const card of target.children ) {
-        let firstName = card.getAttribute('data-firstname');
-        let lastName = card.getAttribute('data-lastname');
+        let firstName = card.getAttribute('data-firstname').toLowerCase();
+        let lastName = card.getAttribute('data-lastname').toLowerCase();
         console.log(`${firstName} ${lastName}`);
       }
     }
