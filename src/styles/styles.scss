@@ -82,6 +82,10 @@ body{
   padding-bottom: 5px;
 }
 
+.friends-catalog__list{
+  min-height: 94%;
+}
+
 .friends-catalog__column{
   flex-basis: 50%;
   height: 323px;
@@ -92,6 +96,7 @@ body{
 }
 .friends-card{
   width: 100%;
+  max-width: 295px;
   min-height: 59px;
   display: flex;
   box-sizing: border-box;
