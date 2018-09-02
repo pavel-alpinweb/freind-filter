@@ -82,7 +82,6 @@ function sortCards(){
 function searchFriend(input){
   input.addEventListener('input',(e)=>{
     let searchValue = input.value;
-    let currentInput = input.id;
     if(input.id == friendSeacrhInput.id){
       for (const card of source.children ) {
         let firstName = card.getAttribute('data-firstname');
