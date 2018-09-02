@@ -5,6 +5,48 @@
     <title>{{htmlWebpackPlugin.options.title}}</title>
 </head>
 <body>
-
+    <div class="container friends-filter">
+        <header class="friends-filter__header">
+            <span>Выберите друзей</span>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 14 14"><defs><path id="yhlqa" d="M774.66 151.34a2 2 0 0 1 0 2.83l-2.83 2.83 2.83 2.83a2 2 0 1 1-2.83 2.83l-2.83-2.83-2.83 2.83a2 2 0 1 1-2.83-2.83l2.83-2.83-2.83-2.83a2 2 0 1 1 2.83-2.83l2.83 2.83 2.83-2.83a2 2 0 0 1 2.83 0z"/></defs><g><g transform="translate(-762 -150)"><use fill="#fff" xlink:href="#yhlqa"/></g></g></svg>
+        </header>
+        <form action="/" class="form-search">
+            <input placeholder="Начните вводить имя друга" id="accaunt-friends" type="text" class="form-search__input">
+            <input placeholder="Начните вводить имя друга" id="list-friends" type="text" class="form-search__input">
+        </form>
+        <div class="friends-catalog">
+            <div class="friends-catalog__column friends-catalog__column--left">
+                <div class="friends-catalog__title">Ваши друзья</div>
+                <div class="friends-catalog__list">
+                    <div class="friends-card">
+                        <div class="friend-card__info">
+                            <img class="friends-card__avatar" src="http://placehold.jp/45x45.png" alt="friend">
+                            <span class="friends-card__name">Artem Barabanov</span>
+                        </div>
+                        <div class="friend-card__control">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16"><defs><path id="ohxha" d="M449 276a2 2 0 0 1 2 2v4h4a2 2 0 1 1 0 4h-4v4a2 2 0 0 1-4 0v-4h-4a2 2 0 1 1 0-4h4v-4c0-1.1.9-2 2-2z"/></defs><g><g transform="translate(-441 -276)"><use fill="#c4c4c4" xlink:href="#ohxha"/></g></g></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="friends-catalog__column friends-catalog__column--right">
+                <div class="friends-catalog__title">Друзья в списке</div>
+                <div class="friends-catalog__list">
+                    <div class="friends-card">
+                        <div class="friend-card__info">
+                            <img class="friends-card__avatar" src="http://placehold.jp/45x45.png" alt="friend">
+                            <span class="friends-card__name">Artem Barabanov</span>
+                        </div>
+                        <div class="friend-card__control">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 14 14"><defs><path id="g62ga" d="M764.66 278.34a2 2 0 0 1 0 2.83l-2.83 2.83 2.83 2.83a2 2 0 0 1-2.83 2.83l-2.83-2.83-2.83 2.83a2 2 0 0 1-2.83-2.83l2.83-2.83-2.83-2.83a2 2 0 1 1 2.83-2.83l2.83 2.83 2.83-2.83a2 2 0 0 1 2.83 0z"/></defs><g><g transform="translate(-752 -277)"><use fill="#c4c4c4" xlink:href="#g62ga"/></g></g></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="friends-filter__footer">
+            <button class="btn-save">Сохранить</button>
+        </footer>
+    </div>
 </body>
 </html>

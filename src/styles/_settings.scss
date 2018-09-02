@@ -9,3 +9,14 @@ $bigFontSize: 16px;
 $accentColorOne: #c4c4c4;
 $mainFontColor: #4f4f4f;
 $mainColor: #ff8663;
+
+@mixin placeholder {
+    &::-webkit-input-placeholder { @content; }
+    &:-moz-placeholder           { @content; }
+    &::-moz-placeholder          { @content; }
+    &:-ms-input-placeholder      { @content; }  
+}
+
+*{
+    box-sizing: border-box;
+}
