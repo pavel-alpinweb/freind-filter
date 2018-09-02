@@ -8,7 +8,14 @@ import './styles/styles.scss';
 const source = document.querySelector('.friends-catalog__list--friends');
 const target = document.querySelector('.friends-catalog__list--filter');
 
+const friendSeacrhInput = document.getElementById('accaunt-friends');
+const filterSeacrhInput = document.getElementById('list-friends');
+
+searchFriend(friendSeacrhInput);
+searchFriend(filterSeacrhInput);
+
 makeDnD([source, target]);
+sortCards();
 
 function makeDnD(zones) {
   let currentDrag;
@@ -26,7 +33,6 @@ function makeDnD(zones) {
       zone.addEventListener('drop', (e) => {
           if (currentDrag) {
               e.preventDefault();
-              currentDrag.node.style.position = 'static';
               if (currentDrag.source !== zone) {
                   if (e.target.classList.contains('friends-card')) {
                       zone.insertBefore(currentDrag.node, e.target.nextElementSibling);
@@ -73,4 +79,22 @@ function sortCards(){
     }
 }
 
-sortCards();
+function searchFriend(input){
+  input.addEventListener('input',(e)=>{
+    let searchValue = input.value;
+    let currentInput = input.id;
+    if(input.id == friendSeacrhInput.id){
+      for (const card of source.children ) {
+        let firstName = card.getAttribute('data-firstname');
+        let lastName = card.getAttribute('data-lastname');
+        console.log(`${firstName} ${lastName}`);
+      }
+    } else if(input.id == filterSeacrhInput.id){
+      for (const card of target.children ) {
+        let firstName = card.getAttribute('data-firstname');
+        let lastName = card.getAttribute('data-lastname');
+        console.log(`${firstName} ${lastName}`);
+      }
+    }
+  });
+}
