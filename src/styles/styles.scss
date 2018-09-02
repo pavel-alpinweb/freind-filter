@@ -123,6 +123,15 @@ body{
 
 .friend-card__control{
   cursor: pointer;
+  width: 16px;
+  height: 16px;
+  background: transparent no-repeat center;
+  &--add{
+    background-image: url('../img/add.png');
+  }
+  &--remove{
+    background-image: url('../img/remove.png');
+  }
 }
 
 .friends-card__name{

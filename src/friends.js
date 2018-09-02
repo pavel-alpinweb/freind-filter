@@ -40,3 +40,4 @@ function makeDnD(zones) {
       });
   })
 }
+
