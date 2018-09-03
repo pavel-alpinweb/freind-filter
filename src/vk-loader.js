@@ -34,11 +34,11 @@ export function vkLoader() {
       return callAPI('friends.get', {fields: 'photo_100'});
   })
   .then(friends => {
-    const html = renderFn({ items: friends });
+    const html = renderFn({ items: friends.items });
     const results = document.querySelector('.friends-catalog__list--filter');
 
     results.innerHTML = html;
 
-    console.log({ items: friends })
+    // console.log({ items: friends })
   });
 }
