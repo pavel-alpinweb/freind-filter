@@ -1,6 +1,6 @@
 export function vkLoader() {
   VK.init({
-    apiId: 5350105
+    apiId: 6680960
   });
 
   function auth(){
@@ -33,13 +33,13 @@ export function vkLoader() {
       return callAPI('friends.get', {fields: 'photo_100'});
   })
   .then(friends => {
-    const template  = document.querySelector("#entry-template").textContent;
+    const template  = document.querySelector("#entry-template").innerText;
     const render = Handlebars.compile(template);
-    const html    = render(friends.items);
+    const html  = render({ items: friends.items });
     const results = document.querySelector('.friends-catalog__list--filter');
 
     results.innerHTML = html;
 
-    console.log(template)
+    console.log(html)
   });
 }
