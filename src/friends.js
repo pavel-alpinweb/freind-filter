@@ -58,23 +58,26 @@ function makeDnD(zones) {
   })
 }
 
+function sortEngine(element){
+  if (element.classList.contains('friend-card__control--add')) {
+    changeClass(element,'friend-card__control--remove','friend-card__control--add');
+  } else {
+    changeClass(element,'friend-card__control--add','friend-card__control--remove');
+  }
+  const currentZome = element.parentNode.parentNode;
+  if (currentZome.classList.contains('friends-catalog__list--filter')) {
+    source.insertBefore(element.parentNode, source.lastElementChild);
+  } else {
+    target.insertBefore(element.parentNode, target.lastElementChild);
+  }
+}
+
 function sortCards(){
-  const controls = document.querySelectorAll('.friend-card__control');
-  for (const btn of controls) {
-    btn.addEventListener('click',()=>{
-      if (btn.classList.contains('friend-card__control--add')) {
-        changeClass(btn,'friend-card__control--remove','friend-card__control--add');
-      } else {
-        changeClass(btn,'friend-card__control--add','friend-card__control--remove');
-      }
-      const currentZome = btn.parentNode.parentNode;
-      if (currentZome.classList.contains('friends-catalog__list--filter')) {
-        source.insertBefore(btn.parentNode, source.lastElementChild);
-      } else {
-        target.insertBefore(btn.parentNode, target.lastElementChild);
+    document.body.addEventListener('click',(e)=>{
+      if (e.target.classList.contains('friend-card__control')) {
+        sortEngine(e.target);
       }
     });
-  }
 }
 
 function searchEngine(list,inputValue){
