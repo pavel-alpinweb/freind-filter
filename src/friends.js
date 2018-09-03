@@ -1,7 +1,9 @@
 import './styles/styles.scss';
+import {vkLoader} from './vk-loader.js';
+vkLoader();
 
-// const renderFn = Handlebars.compile(template)
-// const html = render(array)
+// const renderFn = Handlebars.compile(template);
+// const html = render(array);
 // container.innerHTML = html;
 
 
@@ -10,6 +12,7 @@ const target = document.querySelector('.friends-catalog__list--filter');
 
 const friendSeacrhInput = document.getElementById('accaunt-friends');
 const filterSeacrhInput = document.getElementById('list-friends');
+
 
 searchHandler(friendSeacrhInput);
 searchHandler(filterSeacrhInput);
