@@ -2,10 +2,6 @@ import './styles/styles.scss';
 import {vkLoader} from './vk-loader.js';
 vkLoader();
 
-// const renderFn = Handlebars.compile(template);
-// const html = render(array);
-// container.innerHTML = html;
-
 
 const source = document.querySelector('.friends-catalog__list--friends');
 const target = document.querySelector('.friends-catalog__list--filter');

@@ -53,10 +53,10 @@
 
     <script id="entry-template" type="text/x-handlebars-template">
         {{#each items}}
-        <div data-firstname="Иозеф" data-lastname="Кнехт" class="friends-card" draggable="true">
+        <div data-firstname="{{first_name}}" data-lastname="{{last_name}}" class="friends-card" draggable="true">
             <div class="friend-card__info">
-                <img class="friends-card__avatar" src="http://placehold.jp/45x45.png" alt="friend">
-                <span class="friends-card__name">Иозеф Кнехт</span>
+                <img class="friends-card__avatar" src="{{photo_100}}" alt="friend">
+                <span class="friends-card__name">{{first_name}} {{last_name}}</span>
              </div>
             <div class="friend-card__control friend-card__control--add"></div>
         </div>
