@@ -1,7 +1,7 @@
 import './styles/styles.scss';
 import {vkLoader} from './vk-loader.js';
 vkLoader();
-import render from './templates/template.hbs';
+
 
 const source = document.querySelector('.friends-catalog__list--friends');
 const target = document.querySelector('.friends-catalog__list--filter');

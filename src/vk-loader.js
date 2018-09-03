@@ -1,5 +1,4 @@
 export function vkLoader() {
-
   VK.init({
     apiId: 6680960
   });
@@ -34,14 +33,13 @@ export function vkLoader() {
       return callAPI('friends.get', {fields: 'photo_100'});
   })
   .then(friends => {
-
-    const template  = render;
+    const template  = document.querySelector("#entry-template").innerText;
     const render = Handlebars.compile(template);
     const html  = render({ items: friends.items });
     const results = document.querySelector('.friends-catalog__list--filter');
 
     results.innerHTML = html;
 
-    console.log(html);
+    console.log(html)
   });
 }
