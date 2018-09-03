@@ -35,10 +35,7 @@ export function vkLoader() {
   })
   .then(friends => {
     const html = renderFn({ items: friends.items });
-    const results = document.querySelector('.friends-catalog__list--filter');
-
+    const results = document.querySelector('.friends-catalog__list--friends');
     results.innerHTML = html;
-
-    // console.log({ items: friends })
   });
 }
