@@ -40,6 +40,6 @@ export function vkLoader() {
 
     results.innerHTML = html;
 
-    console.log(template)
+    console.log(html)
   });
 }
