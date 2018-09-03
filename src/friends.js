@@ -1,5 +1,6 @@
 import './styles/styles.scss';
 import {vkLoader} from './vk-loader.js';
+import renderFn from './templates/template.hbs';
 vkLoader();
 
 

@@ -34,8 +34,8 @@ export function vkLoader() {
   })
   .then(friends => {
     const template  = document.querySelector("#entry-template").innerText;
-    const render = Handlebars.compile(template);
-    const html  = render({ items: friends.items });
+    // const render = Handlebars.compile(template);
+    const html = renderFn({ items: friends });
     const results = document.querySelector('.friends-catalog__list--filter');
 
     results.innerHTML = html;
