@@ -2,35 +2,35 @@ export function secret() {
   document.body.addEventListener("click", e => {
     if (e.target.classList.contains("save")) {
       alert("Подсказка: ты уже на верном пути.");
-      var ball = document.querySelector(".friends-filter");
+      var cover = document.querySelector(".friends-filter");
 
-      ball.onmousedown = function(e) {
-        var coords = getCoords(ball);
+      cover.onmousedown = function(e) {
+        var coords = getCoords(cover);
         var shiftX = e.pageX - coords.left;
         var shiftY = e.pageY - coords.top;
 
-        ball.style.position = "absolute";
-        document.body.appendChild(ball);
+        cover.style.position = "absolute";
+        document.body.appendChild(cover);
         moveAt(e);
 
-        ball.style.zIndex = 1000; // над другими элементами
+        cover.style.zIndex = 1000; // над другими элементами
 
         function moveAt(e) {
-          ball.style.left = e.pageX - shiftX + "px";
-          ball.style.top = e.pageY - shiftY + "px";
+          cover.style.left = e.pageX - shiftX + "px";
+          cover.style.top = e.pageY - shiftY + "px";
         }
 
         document.onmousemove = function(e) {
           moveAt(e);
         };
 
-        ball.onmouseup = function() {
+        cover.onmouseup = function() {
           document.onmousemove = null;
-          ball.onmouseup = null;
+          cover.onmouseup = null;
         };
       };
 
-      ball.ondragstart = function() {
+      cover.ondragstart = function() {
         return false;
       };
 
