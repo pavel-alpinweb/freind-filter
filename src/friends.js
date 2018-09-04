@@ -64,7 +64,13 @@ function makeDnD(zones) {
                   if (currentDrag.node.parentNode.classList.contains('friends-catalog__list--filter')) {
                     const icon = currentDrag.node.querySelector('.friend-card__control');
                     changeClass(icon,'friend-card__control--remove','friend-card__control--add');
+
+                    let searchValue = filterSeacrhInput.value.toLowerCase();
+                    searchEngine(target,searchValue);
                   } else {
+                    let searchValue = friendSeacrhInput.value.toLowerCase();
+                    searchEngine(source,searchValue);
+
                     const icon = currentDrag.node.querySelector('.friend-card__control');
                     changeClass(icon,'friend-card__control--add','friend-card__control--remove');
                   }
