@@ -12,7 +12,6 @@ const target = document.querySelector('.friends-catalog__list--filter');
 const friendSeacrhInput = document.getElementById('accaunt-friends');
 const filterSeacrhInput = document.getElementById('list-friends');
 
-
 if(localValueFriends && localValueFilter){
   storageLoader();
 } else {
