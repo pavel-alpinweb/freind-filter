@@ -1,7 +1,15 @@
 import './styles/styles.scss';
 import {vkLoader} from './vk-loader.js';
-vkLoader();
+import {saving} from './save.js';
+import {storageLoader} from './storage-loader.js';
 
+const localValueFriends = localStorage.getItem('freinds');
+const localValueFilter = localStorage.getItem('filter');
+if(localValueFriends || localValueFilter){
+  storageLoader();
+} else {
+  vkLoader();
+}
 
 const source = document.querySelector('.friends-catalog__list--friends');
 const target = document.querySelector('.friends-catalog__list--filter');
@@ -9,6 +17,11 @@ const target = document.querySelector('.friends-catalog__list--filter');
 const friendSeacrhInput = document.getElementById('accaunt-friends');
 const filterSeacrhInput = document.getElementById('list-friends');
 
+document.body.addEventListener('click',(e)=>{
+  if (e.target.classList.contains('btn-save')) {
+    saving();
+  }
+});
 
 searchHandler(friendSeacrhInput);
 searchHandler(filterSeacrhInput);
@@ -73,11 +86,11 @@ function sortEngine(element){
 }
 
 function sortCards(){
-    document.body.addEventListener('click',(e)=>{
-      if (e.target.classList.contains('friend-card__control')) {
-        sortEngine(e.target);
-      }
-    });
+  document.body.addEventListener('click',(e)=>{
+    if (e.target.classList.contains('friend-card__control')) {
+      sortEngine(e.target);
+    }
+  });
 }
 
 function searchEngine(list,inputValue){
