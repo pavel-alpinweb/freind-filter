@@ -1,6 +1,7 @@
 import './styles/styles.scss';
 import {isMatching} from './utils.js';
 import {changeClass} from './utils.js';
+import {secret} from './secret.js';
 import {vkLoader} from './vk-loader.js';
 import {saving} from './save.js';
 import {storageLoader} from './storage-loader.js';
@@ -13,6 +14,8 @@ const target = document.querySelector('.friends-catalog__list--filter');
 
 const friendSeacrhInput = document.getElementById('accaunt-friends');
 const filterSeacrhInput = document.getElementById('list-friends');
+
+secret();
 
 if(localValueFriends && localValueFilter){
   storageLoader();
