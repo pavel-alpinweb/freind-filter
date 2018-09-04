@@ -90,8 +90,12 @@ function sortEngine(element){
   const currentZome = element.parentNode.parentNode;
   if (currentZome.classList.contains('friends-catalog__list--filter')) {
     source.insertBefore(element.parentNode, source.lastElementChild);
+    let searchValue = friendSeacrhInput.value.toLowerCase();
+    searchEngine(source,searchValue);
   } else {
     target.insertBefore(element.parentNode, target.firstElementChild);
+    let searchValue = filterSeacrhInput.value.toLowerCase();
+    searchEngine(target,searchValue);
   }
 }
 
