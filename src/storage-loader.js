@@ -3,22 +3,19 @@ const source = document.querySelector('.friends-catalog__list--friends');
 const target = document.querySelector('.friends-catalog__list--filter');
 export function storageLoader(){
 
-    function getObject(key){
-        let returnObj = JSON.parse(localStorage.getItem(key));
-        return returnObj;
+function getObject(key){
+    let returnObj = JSON.parse(localStorage.getItem(key));
+    return returnObj;
+}
+function render(array,container){
+    const html = renderFn({ items: array });
+    container.innerHTML = html;
+    const cards = target.querySelectorAll('.friend-card__control');
+    for (const costyle of cards) { // игорь прости меня за мой код :(
+        costyle.classList.add('friend-card__control--remove'); 
+        costyle.classList.remove('friend-card__control--add'); 
     }
-
-    function render(array,container){
-        const html = renderFn({ items: array });
-        container.innerHTML = html;
-        const cards = target.querySelectorAll('.friend-card__control');
-        for (const costyle of cards) {
-            costyle.classList.add('friend-card__control--remove'); 
-            costyle.classList.remove('friend-card__control--add'); 
-        }
-    }
-
-
-    render(getObject("freinds"),source);
-    render(getObject("filter"),target);
+}
+render(getObject('freinds'),source);
+render(getObject('filter'),target);
 }

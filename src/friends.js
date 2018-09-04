@@ -5,11 +5,6 @@ import {storageLoader} from './storage-loader.js';
 
 const localValueFriends = localStorage.getItem('freinds');
 const localValueFilter = localStorage.getItem('filter');
-if(localValueFriends && localValueFilter){
-  storageLoader();
-} else {
-  vkLoader();
-}
 
 const source = document.querySelector('.friends-catalog__list--friends');
 const target = document.querySelector('.friends-catalog__list--filter');
@@ -17,17 +12,29 @@ const target = document.querySelector('.friends-catalog__list--filter');
 const friendSeacrhInput = document.getElementById('accaunt-friends');
 const filterSeacrhInput = document.getElementById('list-friends');
 
-document.body.addEventListener('click',(e)=>{
+
+if(localValueFriends && localValueFilter){
+  storageLoader();
+} else {
+  vkLoader();
+}
+
+addSearchHandler(friendSeacrhInput);
+addSearchHandler(filterSeacrhInput);
+
+makeDnD([source, target]);
+
+document.body.addEventListener('click',e=>{
   if (e.target.classList.contains('btn-save')) {
     saving();
   }
 });
 
-searchHandler(friendSeacrhInput);
-searchHandler(filterSeacrhInput);
-
-makeDnD([source, target]);
-sortCards();
+document.body.addEventListener('click',e=>{
+  if (e.target.classList.contains('friend-card__control')) {
+    sortEngine(e.target);
+  }
+});
 
 function changeClass(element,add,remove){
   element.classList.add(add); 
@@ -84,18 +91,11 @@ function sortEngine(element){
   }
 }
 
-function sortCards(){
-  document.body.addEventListener('click',(e)=>{
-    if (e.target.classList.contains('friend-card__control')) {
-      sortEngine(e.target);
-    }
-  });
-}
-
 function searchEngine(list,inputValue){
   for (const card of list.children ) {
     let firstName = card.getAttribute('data-firstname').toLowerCase();
     let lastName = card.getAttribute('data-lastname').toLowerCase();
+
     if (firstName.indexOf(inputValue) > -1  || lastName.indexOf(inputValue) > -1) {
       card.classList.remove('hide');
     } else{
@@ -104,9 +104,10 @@ function searchEngine(list,inputValue){
   }
 }
 
-function searchHandler(input){
+function addSearchHandler(input){
   input.addEventListener('input',e=>{
     let searchValue = input.value.toLowerCase();
+
     if(input.id == friendSeacrhInput.id){
       searchEngine(source,searchValue);
     } else if(input.id == filterSeacrhInput.id){
