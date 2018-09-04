@@ -1,3 +1,4 @@
+import {changeClass} from './utils.js';
 import renderFn from './templates/template.hbs';
 const source = document.querySelector('.friends-catalog__list--friends');
 const target = document.querySelector('.friends-catalog__list--filter');
@@ -11,9 +12,8 @@ function render(array,container){
     const html = renderFn({ items: array });
     container.innerHTML = html;
     const cards = target.querySelectorAll('.friend-card__control');
-    for (const costyle of cards) { // игорь прости меня за мой код :(
-        costyle.classList.add('friend-card__control--remove'); 
-        costyle.classList.remove('friend-card__control--add'); 
+    for (const costyle of cards) { // Игорь прости меня за мой код :( 
+        changeClass(costyle,'friend-card__control--remove','friend-card__control--add');
     }
 }
 render(getObject('freinds'),source);

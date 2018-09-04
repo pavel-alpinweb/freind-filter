@@ -1,4 +1,6 @@
 import './styles/styles.scss';
+import {isMatching} from './utils.js';
+import {changeClass} from './utils.js';
 import {vkLoader} from './vk-loader.js';
 import {saving} from './save.js';
 import {storageLoader} from './storage-loader.js';
@@ -35,10 +37,6 @@ document.body.addEventListener('click',e=>{
   }
 });
 
-function changeClass(element,add,remove){
-  element.classList.add(add); 
-  element.classList.remove(remove);  
-}
 
 function makeDnD(zones) {
   let currentDrag;
