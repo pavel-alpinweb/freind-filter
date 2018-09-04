@@ -39,9 +39,8 @@ function makeDnD(zones) {
 
   zones.forEach(zone => {
       zone.addEventListener('dragstart', e => {
-          currentDrag = { source: zone, node: e.target };
+            currentDrag = { source: zone, node: e.target};
       });
-
       zone.addEventListener('dragover', e => {
           e.preventDefault();
 
@@ -54,7 +53,7 @@ function makeDnD(zones) {
                   if (e.target.classList.contains('friends-card')) {
                       zone.insertBefore(currentDrag.node, e.target.nextElementSibling);
                   } else {
-                      zone.insertBefore(currentDrag.node, zone.lastElementChild);
+                      zone.insertBefore(currentDrag.node, zone.firstElementChild);
                   }
 
                   if (currentDrag.node.parentNode.classList.contains('friends-catalog__list--filter')) {
@@ -81,7 +80,7 @@ function sortEngine(element){
   if (currentZome.classList.contains('friends-catalog__list--filter')) {
     source.insertBefore(element.parentNode, source.lastElementChild);
   } else {
-    target.insertBefore(element.parentNode, target.lastElementChild);
+    target.insertBefore(element.parentNode, target.firstElementChild);
   }
 }
 
