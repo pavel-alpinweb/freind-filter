@@ -19,6 +19,8 @@ body{
   max-width: 620px;
   margin: auto;
   padding: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .friends-filter__header{
@@ -166,4 +168,14 @@ body{
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+iframe{
+  position: absolute;
+  z-index: 1;
+  top:50%;
+  left: 50%;
+  margin-top: -243px;
+  margin-left: -313px;
+  border: none;
 }
