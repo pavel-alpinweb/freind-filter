@@ -94,7 +94,7 @@ function searchEngine(list,inputValue){
     let firstName = card.getAttribute('data-firstname').toLowerCase();
     let lastName = card.getAttribute('data-lastname').toLowerCase();
 
-    if (isMatching(firstName, inputValue)  || isMatching(lastName, inputValue)) {
+    if (isMatching(`${firstName} ${lastName}`, inputValue)) {
       card.classList.remove('hide');
     } else{
       card.classList.add('hide');
