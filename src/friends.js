@@ -30,9 +30,6 @@ document.body.addEventListener('click',e=>{
     saving();
     alert('Ваша сортировка сохраненна');
   }
-});
-
-document.body.addEventListener('click',e=>{
   if (e.target.classList.contains('friend-card__control')) {
     sortEngine(e.target);
   }
