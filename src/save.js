@@ -7,9 +7,9 @@ export function saving(){
     function savInObj(container,array){
         let cards = container.querySelectorAll('.friends-card');
         for (const item of cards) {
-            let firstName = item.getAttribute('data-firstname');
-            let lastName = item.getAttribute('data-lastname');
-            let avatar = item.querySelector('.friends-card__avatar').getAttribute('src');
+            const firstName = item.getAttribute('data-firstname');
+            const lastName = item.getAttribute('data-lastname');
+            const avatar = item.querySelector('.friends-card__avatar').getAttribute('src');
             const friend = {
                 first_name: firstName,
                 last_name: lastName,

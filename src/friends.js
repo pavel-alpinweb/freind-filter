@@ -5,7 +5,7 @@ import {storageLoader} from './storage-loader.js';
 
 const localValueFriends = localStorage.getItem('freinds');
 const localValueFilter = localStorage.getItem('filter');
-if(localValueFriends || localValueFilter){
+if(localValueFriends && localValueFilter){
   storageLoader();
 } else {
   vkLoader();

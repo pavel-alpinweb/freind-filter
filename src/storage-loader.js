@@ -8,10 +8,16 @@ export function storageLoader(){
         return returnObj;
     }
 
-    function render(obj,container){
-        const html = renderFn(obj);
+    function render(array,container){
+        const html = renderFn({ items: array });
         container.innerHTML = html;
+        const cards = target.querySelectorAll('.friend-card__control');
+        for (const costyle of cards) {
+            costyle.classList.add('friend-card__control--remove'); 
+            costyle.classList.remove('friend-card__control--add'); 
+        }
     }
+
 
     render(getObject("freinds"),source);
     render(getObject("filter"),target);
