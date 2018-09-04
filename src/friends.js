@@ -28,6 +28,7 @@ makeDnD([source, target]);
 document.body.addEventListener('click',e=>{
   if (e.target.classList.contains('btn-save')) {
     saving();
+    alert('Ваша сортировка сохраненна');
   }
 });
 
@@ -93,7 +94,7 @@ function searchEngine(list,inputValue){
     let firstName = card.getAttribute('data-firstname').toLowerCase();
     let lastName = card.getAttribute('data-lastname').toLowerCase();
 
-    if (firstName.indexOf(inputValue) > -1  || lastName.indexOf(inputValue) > -1) {
+    if (isMatching(firstName, inputValue)  || isMatching(lastName, inputValue)) {
       card.classList.remove('hide');
     } else{
       card.classList.add('hide');
