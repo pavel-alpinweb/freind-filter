@@ -13,7 +13,7 @@ export function saving(){
             const friend = {
                 first_name: firstName,
                 last_name: lastName,
-                avatar: avatar
+                photo_100: avatar
             }
             array.push(friend);
         }
